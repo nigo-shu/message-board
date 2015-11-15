@@ -1,12 +1,37 @@
+<% if @message.errors.present? %>
 
+    <div class="alert alert-danger">
+      
+<%= alert %>
 
+      <ul>
+        
+<% @message.errors.full_messages.each do |full_message| %>
+
+          <li>
+            
+<%= full_message %>
+
+          </li>
+        
+<% end %>
+ 
+      </ul>
+    </div>
+  
+<% end %>
 
 <div class="container">
   <div class="row">
       <div class="col-sm-2">
           </div>
     <div class="col-sm-4">
-      <%= form_for(Message.new)do |f| %>
+        <%= form_for(@message) do |f| %>
+
+  
+
+
+
       <span style="color:#fff;"><strong>名前</strong></span>
       <%= f.text_field :name %>
       <br>
