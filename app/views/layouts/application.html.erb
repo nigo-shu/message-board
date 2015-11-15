@@ -6,17 +6,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+  
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Message Board</a>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
+ <header>
+        <h1><span class="glyphicon glyphicon-comment color-white" aria-hidden="true"></span> Message Board</h1>
+ </header>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 ">
     <%= yield %>
   </div>
+  </div>
+  </div>
 </body>
+<footer>
+  <div align="center">Copyright 2015 Shuhei Nigo　 All rights reserved.</div>
+</footer>
 </html>
