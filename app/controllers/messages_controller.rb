@@ -6,13 +6,13 @@ class MessagesController < ApplicationController
   
   def update
     if @message.update(message_params)
-      #　保存に成功した場合はトップページにリダイレクト
+      # 保存に成功した場合はトップページへリダイレクト
       redirect_to root_path , notice: 'メッセージを編集しました'
-　　else
-　　  #　保存に失敗した場合は編集面に戻す
-　　  render 'edit'
-　　end
-　end
+    else
+      # 保存に失敗した場合は編集画面へ戻す
+      render 'edit'
+    end
+  end
 　
 　　 def index
     # Messageを全て取得する。
@@ -43,7 +43,5 @@ end
   def set_message
     @message = Message.find(params[:id])
   ## ここまで
-end
-end
-end
-end
+  end
+
