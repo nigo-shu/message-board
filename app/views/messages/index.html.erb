@@ -1,70 +1,44 @@
-<% if @message.errors.present? %>
-
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.present? %>
     <div class="alert alert-danger">
-      
-<%= alert %>
-
+      <%= alert %>
       <ul>
-        
-<% @message.errors.full_messages.each do |full_message| %>
-
+        <% @message.errors.full_messages.each do |full_message| %>
           <li>
-            
-<%= full_message %>
-
+            <%= full_message %>
           </li>
-        
-<% end %>
- 
+        <% end %>
       </ul>
     </div>
+  <% end %>
   
-<% end %>
-
-<div class="container">
-  <div class="row">
-      <div class="col-sm-2">
-          </div>
-    <div class="col-sm-4">
-        <%= form_for(@message) do |f| %>
-
-  
-
-
-
-      <span style="color:#fff;"><strong>名前</strong></span>
-      <%= f.text_field :name %>
-      <br>
-      <br>
-      <span style="color:#fff;"><strong>内容</strong></span>
-      <%= f.text_area :body %>
-      <br>
-      <br>
+  <%= form_for(Message.new, html: {class: "form-horizontal"}) do |f| %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">名前：</label>
+    <div class="col-sm-6">
+      <%= f.text_field :name, size: 40, maxlength: 20, class: "form-control" %>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
       <%= f.submit class: "btn btn-sm btn-default" %>
       <% end %>
       </div>
-   
-
-    <div class="col-sm-5">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-        メッセージ一覧
+      <div class="col-sm-5">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+          メッセージ一覧
+          </div>
+          <div class="panel-body">
+            <% @messages.each do |message| %>
+              <span class="label label-info"><%= message.name %></span>
+              <%= message.body %>
+                <br>
+              (
+                <%= link_to "edit" , edit_message_path(message) %>
+              )
+            <% end %>
+          </div>
         </div>
-        <div class="panel-body">
-        <% @messages.each do |message| %>
-        <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
-        <br>
-        <% end %>
       </div>
-    </div>
-    <% #部分テンプレートを読み込んでいる %>
-
-    <%= render 'form' %>
-
-  </div>
-  <div class="col-sm-1">
-      </div>
-</div>
-</div>
-
+            <% end %>
+            <% end %>
