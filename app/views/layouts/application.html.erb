@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MessageBoard</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <style>
+  <head>
+     <title>MessageBoard</title>
+     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+     <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <h1><span class="glyphicon glyphicon-comment color-white" aria-hidden="true"></span> Message Board</h1>
+    </header>
   
-  </style>
-</head>
-<body>
- <header>
-        <h1><span class="glyphicon glyphicon-comment color-white" aria-hidden="true"></span> Message Board</h1>
- </header>
-  
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12 ">
-    <%= yield %>
-  </div>
-  </div>
-  </div>
-</body>
-<footer>
-  <div align="center">Copyright 2015 Shuhei Nigo　 All rights reserved.</div>
-</footer>
+    <div class="container-fluid">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <div align="center">Copyright 2015 Shuhei Nigo　 All rights reserved.</div>
+  </footer>
 </html>
