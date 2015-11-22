@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <%= form_for(Message.new, html: {class: "form-horizontal"}) do |f| %>
-    <% if @message.errors.present? %>
+     <% if @message.errors.present? %>
       <div class="alert alert-denger">
         <%= alert %>
         <ul>
@@ -41,10 +41,12 @@
         <% @messages.each do |message| %>
           <span class="label label-info"><%= message.name %></span>
           <%= message.body %>
+            (
+              <%= link_to "edit" , edit_message_path(message) %>
+              <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+            )
           <br>
         <% end %>
       </div>
     </div>
   </div>
-</div>
-
