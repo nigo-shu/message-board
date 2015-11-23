@@ -3,7 +3,7 @@
    <%= render 'form' %>
 
 
-  <div class="col-sm-5">
+  <div class="container">
     <div class="panel panel-primary">
       <div class="panel-heading">
       メッセージ一覧
@@ -11,13 +11,13 @@
       <div class="panel-body">
         <% @messages.each do |message| %>
         <span class="label label-info"><%= message.name %></span>
-        <%= message.body %><%= message.age %>
-          <br>
+        <%= message.age %>歳 <%= message.body %>
+        
         (
-          <%= link_to "edit" , edit_message_path(message) %>
-          <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-
+        <%= link_to "編集" , edit_message_path(message) %>・
+        <%= link_to "削除" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
         )
+        <br>
       <% end %>
     </div>
   </div>
